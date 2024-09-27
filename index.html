@@ -8,7 +8,7 @@
     <body>
         <div class="calculator">
             <h1>simple calculator</h1>
-            <input type="number" id="num1" placeholder="enter number 1">
+            <input type="textr" id="num1" placeholder="enter number 1">
             <input type="number" id="num2" placeholder="enter number 2"><br>
 
             <button onclick="calculate('+')">+</button>
@@ -18,6 +18,36 @@
             
             <p id="result">Result: </p>
         </div>
+
+        <script>
+            function calculate(operation) {
+                let num1 = parseFloat(document.getElementById('num1').value);
+                let num2 = parseFloat(document.getElementById('num2').value);
+                let result;
+                
+                if (isNaN(num1) || isNaN(num2)) {
+                    result = "please enter valid numbers"  
+                } else {
+                    switch (operation) {
+                        case '+':
+                            result = num1 + num2
+                            break;
+                        case '-':
+                            result = num1 - num2
+                            break;
+                        case '*':
+                            result = num1 * num2
+                            break;
+                        case '/':
+                            result = num2 === 0 ? "cannot divide by 0" : num1 / num2
+                            break; 
+                    }
+                }
+
+                document.getElementById('result').innerText = "Result: " + result;
+                
+            }
+        </script>
         
         
     </body>
